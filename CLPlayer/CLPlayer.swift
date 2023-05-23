@@ -203,6 +203,14 @@ private extension CLPlayer {
             UIDevice.current.beginGeneratingDeviceOrientationNotifications()
         }
         NotificationCenter.default.addObserver(self, selector: #selector(deviceOrientationDidChange), name: UIDevice.orientationDidChangeNotification, object: nil)
+
+        /// 循环播放
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(goBackFinished),
+            name: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
+            object: nil
+        )
     }
 
     func makeConstraints() {
@@ -435,6 +443,14 @@ public extension CLPlayer {
         contentView.setTotalDuration(0)
         contentView.setCurrentDuration(0)
         sliderTimer?.cancel()
+    }
+
+    /// 循环播放
+    @objc private func goBackFinished() {
+        if config.isLoop {
+            player?.seek(to: CMTimeMake(value: 0, timescale: 1))
+            play()
+        }
     }
 }
 

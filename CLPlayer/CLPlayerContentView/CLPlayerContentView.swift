@@ -306,7 +306,7 @@ class CLPlayerContentView: UIView {
     var playState: CLPlayerPlayState = .unknow {
         didSet {
             guard playState != oldValue else { return }
-            print("playState:\(playState)")
+            debugPrint("playState:\(playState)")
             switch playState {
             case .unknow:
                 sliderView.isUserInteractionEnabled = false
@@ -693,7 +693,11 @@ extension CLPlayerContentView: UICollectionViewDataSource {
     }
 
     func collectionView(_: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return section == 0 ? rates.count : videoGravity.count
+        switch section {
+        case 0: return rates.count
+        case 1: return videoGravity.count
+        default: return 0
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {

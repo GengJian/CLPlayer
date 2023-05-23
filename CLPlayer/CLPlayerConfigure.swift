@@ -9,6 +9,9 @@ import AVFoundation
 import UIKit
 
 public struct CLPlayerConfigure {
+    /// 是否循环播放
+    public var isLoop: Bool = true
+
     public struct CLPlayerColor {
         /// 顶部工具条背景颜色
         public var topToobar: UIColor
