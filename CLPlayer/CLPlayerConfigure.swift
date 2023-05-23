@@ -23,13 +23,14 @@ public struct CLPlayerConfigure {
         /// 转子背景颜色
         public var loading: UIColor
 
-        public init(topToobar: UIColor = UIColor.black.withAlphaComponent(0.6),
-                    bottomToolbar: UIColor = UIColor.black.withAlphaComponent(0.6),
-                    progress: UIColor = UIColor.white.withAlphaComponent(0.35),
-                    progressBuffer: UIColor = UIColor.white.withAlphaComponent(0.5),
-                    progressFinished: UIColor = UIColor.white,
-                    loading: UIColor = UIColor.white)
-        {
+        public init(
+            topToobar: UIColor = UIColor.black.withAlphaComponent(0.6),
+            bottomToolbar: UIColor = UIColor.black.withAlphaComponent(0.6),
+            progress: UIColor = UIColor.white.withAlphaComponent(0.35),
+            progressBuffer: UIColor = UIColor.white.withAlphaComponent(0.5),
+            progressFinished: UIColor = UIColor.white,
+            loading: UIColor = UIColor.white
+        ) {
             self.topToobar = topToobar
             self.bottomToolbar = bottomToolbar
             self.progress = progress
